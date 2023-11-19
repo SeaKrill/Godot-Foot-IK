@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2m84vuo1gruh"]
+
+[ext_resource type="Texture2D" uid="uid://ct3v756a6i2o" path="res://world_tex.png" id="1_yvxiw"]
+[ext_resource type="PackedScene" uid="uid://bg7og6ngnm3n4" path="res://player.tscn" id="2_etey8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ffkbx"]
+albedo_texture = ExtResource("1_yvxiw")
+uv1_scale = Vector3(8, 8, 8)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_arxxb"]
+
+[sub_resource type="Sky" id="Sky_bxpti"]
+sky_material = SubResource("PhysicalSkyMaterial_arxxb")
+
+[sub_resource type="Environment" id="Environment_a7nfa"]
+background_mode = 2
+sky = SubResource("Sky_bxpti")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Obstacles" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Obstacles"]
+use_collision = true
+size = Vector3(32, 0.002, 32)
+material = SubResource("StandardMaterial3D_ffkbx")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -5)
+use_collision = true
+radius = 3.0
+radial_segments = 20
+rings = 15
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -2, -5)
+use_collision = true
+radius = 3.0
+radial_segments = 20
+rings = 15
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -2, -5)
+use_collision = true
+radius = 3.0
+radial_segments = 20
+rings = 15
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -2, -5)
+use_collision = true
+radius = 3.0
+radial_segments = 20
+rings = 15
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 2)
+use_collision = true
+size = Vector3(1, 0.25, 4)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 2)
+use_collision = true
+size = Vector3(1, 0.5, 4)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 2)
+use_collision = true
+size = Vector3(1, 0.75, 4)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4636, 0, 2)
+use_collision = true
+size = Vector3(4, 1, 4)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Obstacles"]
+transform = Transform3D(0.358417, -0.933562, 0, 0.933562, 0.358417, 0, 0, 0, 1, -8, -1.48925, 2)
+use_collision = true
+size = Vector3(5, 5, 5)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Obstacles"]
+transform = Transform3D(0.612372, -0.612372, 0.5, 0.707107, 0.707107, 0, -0.353553, 0.353553, 0.866025, -8, 0, 7)
+use_collision = true
+size = Vector3(5, 5, 5)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Obstacles"]
+transform = Transform3D(0.353553, -0.353553, 0.866025, 0.707107, 0.707107, 0, -0.612372, 0.612372, 0.5, -6, 0, 11)
+use_collision = true
+size = Vector3(5, 5, 5)
+
+[node name="Player" parent="." instance=ExtResource("2_etey8")]
+transform = Transform3D(-0.654965, 0, -0.755659, 0, 1, 0, 0.755659, 0, -0.654965, 0, 0.261833, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_a7nfa")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6, 0)

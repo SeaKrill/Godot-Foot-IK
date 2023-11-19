@@ -1,0 +1,152 @@
+[gd_scene load_steps=9 format=3 uid="uid://bg7og6ngnm3n4"]
+
+[ext_resource type="PackedScene" uid="uid://d3q80djar5jff" path="res://mixamo.glb" id="1_1ea6w"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_durok"]
+[ext_resource type="Script" path="res://scripts/target.gd" id="3_jsyfp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k32cd"]
+radius = 0.240389
+height = 1.74832
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lur6n"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ro36x"]
+animation = &"Walking"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_qir1y"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_lur6n")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_ro36x")
+blend_point_1/pos = 1.0
+min_space = 0.0
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_iwnl8"]
+graph_offset = Vector2(-70.3133, 19.8512)
+nodes/Movement/node = SubResource("AnimationNodeBlendSpace1D_qir1y")
+nodes/Movement/position = Vector2(80, 140)
+node_connections = [&"output", 0, &"Movement"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_durok")
+
+[node name="mixamo" parent="." instance=ExtResource("1_1ea6w")]
+
+[node name="Skeleton3D" parent="mixamo/Armature" index="0"]
+bones/0/position = Vector3(0.00413972, 6.95394e-10, 0.00583339)
+bones/1/position = Vector3(-6.12251e-08, 1.01046, 0.0151261)
+bones/1/rotation = Quaternion(-0.0302182, 0.00455641, -0.0495441, 0.998304)
+bones/2/rotation = Quaternion(-0.0958107, -0.00496683, 0.0316646, 0.994883)
+bones/3/rotation = Quaternion(0.00901487, -0.00252795, 0.00852582, 0.99992)
+bones/4/rotation = Quaternion(0.0220077, -0.00270472, 0.00832875, 0.99972)
+bones/5/rotation = Quaternion(0.0451919, 0.00279421, -0.0170203, 0.998829)
+bones/6/rotation = Quaternion(-0.0948026, -1.34955e-05, -0.000812296, 0.995496)
+bones/8/rotation = Quaternion(-0.570386, 0.500845, -0.547031, -0.352946)
+bones/9/rotation = Quaternion(0.490387, -0.152015, -0.101047, 0.852175)
+bones/10/rotation = Quaternion(6.83475e-08, -9.13783e-08, -0.248739, 0.96857)
+bones/11/rotation = Quaternion(0.0162238, -0.150905, -0.0106462, 0.988358)
+bones/12/rotation = Quaternion(0.123878, 0.0615975, -0.157471, 0.977785)
+bones/13/rotation = Quaternion(-0.065994, 0.0354312, 0.206454, 0.975585)
+bones/14/rotation = Quaternion(0.0195974, -0.00192943, -0.0274315, 0.99943)
+bones/16/rotation = Quaternion(0.211893, -0.00159523, 0.0331474, 0.976729)
+bones/17/rotation = Quaternion(0.109521, 2.53871e-07, 0.0133486, 0.993895)
+bones/18/rotation = Quaternion(0.189009, -3.86112e-07, 0.0230341, 0.981705)
+bones/20/rotation = Quaternion(0.147093, 0.00184531, 0.00539007, 0.989106)
+bones/21/rotation = Quaternion(0.163096, -5.51011e-08, 0.0198773, 0.98641)
+bones/22/rotation = Quaternion(0.280193, 0.0219782, 0.0406836, 0.95883)
+bones/24/rotation = Quaternion(0.209143, 0.00144243, 0.0187205, 0.977705)
+bones/25/rotation = Quaternion(0.127355, 3.65955e-08, 0.0155215, 0.991736)
+bones/26/rotation = Quaternion(0.197516, 0.100865, 0.0450943, 0.974054)
+bones/28/rotation = Quaternion(0.165228, 0.000288083, 0.0184171, 0.986083)
+bones/29/rotation = Quaternion(0.159967, 7.72084e-08, 0.0194958, 0.98693)
+bones/30/rotation = Quaternion(0.225584, -4.18789e-07, 0.0274919, 0.973836)
+bones/32/rotation = Quaternion(0.56976, 0.503043, -0.538807, 0.36333)
+bones/33/rotation = Quaternion(0.565131, 0.0700999, 0.0347743, 0.821282)
+bones/34/rotation = Quaternion(4.85709e-07, -1.2006e-07, 0.191828, 0.981429)
+bones/35/rotation = Quaternion(0.019919, 0.125221, 0.0709697, 0.989387)
+bones/36/rotation = Quaternion(0.124902, -0.0706326, 0.121782, 0.98213)
+bones/37/rotation = Quaternion(-0.0115406, 0.00281415, -0.096294, 0.995282)
+bones/38/rotation = Quaternion(-0.054916, -0.0922979, -0.031714, 0.99371)
+bones/40/rotation = Quaternion(0.136946, -0.00188067, -0.00275958, 0.990573)
+bones/41/rotation = Quaternion(0.16662, -8.16945e-08, -0.0201072, 0.985816)
+bones/42/rotation = Quaternion(0.220469, -4.42581e-07, -0.0266061, 0.975031)
+bones/44/rotation = Quaternion(0.0853415, -0.000804936, -0.000811632, 0.996351)
+bones/45/rotation = Quaternion(0.174688, 4.62314e-09, -0.0210805, 0.984398)
+bones/46/rotation = Quaternion(0.217477, -7.14159e-07, -0.026246, 0.975713)
+bones/48/rotation = Quaternion(0.143087, -0.000853177, -0.0113378, 0.989645)
+bones/49/rotation = Quaternion(0.17093, -2.23185e-07, -0.0206273, 0.985067)
+bones/50/rotation = Quaternion(0.259881, -1.04603e-06, -0.0313635, 0.965131)
+bones/52/rotation = Quaternion(0.149303, 0.00473913, -0.0485916, 0.987586)
+bones/53/rotation = Quaternion(0.185193, 0.0064971, 0.0129584, 0.982595)
+bones/54/rotation = Quaternion(0.191681, 6.86241e-07, -0.0231306, 0.981185)
+bones/56/rotation = Quaternion(-0.0639134, 0.0634349, 0.994669, -0.0502398)
+bones/57/rotation = Quaternion(-0.229441, 0.0668705, 0.0196739, 0.970823)
+bones/58/rotation = Quaternion(0.549168, -0.0116516, -0.0227707, 0.83532)
+bones/59/rotation = Quaternion(0.338473, -5.55853e-08, -4.00291e-08, 0.940976)
+bones/61/rotation = Quaternion(0.0502271, 0.127595, 0.987215, -0.0812637)
+bones/62/rotation = Quaternion(-0.305062, -0.0195181, -0.0220315, 0.951878)
+bones/63/rotation = Quaternion(0.566467, -0.0367499, 0.0123516, 0.823172)
+bones/64/rotation = Quaternion(0.320592, 3.74066e-06, 1.11125e-06, 0.947217)
+
+[node name="IK_L" type="SkeletonIK3D" parent="mixamo/Armature/Skeleton3D" index="2"]
+process_priority = 1
+root_bone = &"mixamorig_LeftUpLeg"
+tip_bone = &"mixamorig_LeftFoot"
+interpolation = 0.0
+use_magnet = true
+magnet = Vector3(0, 0, 10)
+target_node = NodePath("../../../TargetL/TargetL_IK")
+
+[node name="IK_R" type="SkeletonIK3D" parent="mixamo/Armature/Skeleton3D" index="3"]
+process_priority = 1
+root_bone = &"mixamorig_RightUpLeg"
+tip_bone = &"mixamorig_RightFoot"
+interpolation = 0.0
+use_magnet = true
+magnet = Vector3(-2.5, 0, 10)
+target_node = NodePath("../../../TargetR/TargetR_IK")
+
+[node name="TargetL" type="Marker3D" parent="mixamo" node_paths=PackedStringArray("ik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0900614, 0, 0.010454)
+script = ExtResource("3_jsyfp")
+bone_name = "mixamorig_LeftFoot"
+ik = NodePath("../Armature/Skeleton3D/IK_L")
+
+[node name="TargetL_IK" type="Marker3D" parent="mixamo/TargetL"]
+transform = Transform3D(-0.968788, 0.193229, 0.155282, -0.0189086, -0.682191, 0.730929, 0.247169, 0.705179, 0.664552, 0, 0, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="mixamo/TargetL"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000242069, 0.500012, 0.000259697)
+
+[node name="TargetR" type="Marker3D" parent="mixamo" node_paths=PackedStringArray("ik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0369159, 0, -0.0174354)
+script = ExtResource("3_jsyfp")
+bone_name = "mixamorig_RightFoot"
+ik = NodePath("../Armature/Skeleton3D/IK_R")
+
+[node name="TargetR_IK" type="Marker3D" parent="mixamo/TargetR"]
+transform = Transform3D(-0.955462, -0.188804, -0.226817, -0.0328008, -0.695869, 0.71742, -0.293287, 0.692907, 0.658683, 0, 0, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="mixamo/TargetR"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000313859, 0.499991, 0.000177734)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87801, 0)
+shape = SubResource("CapsuleShape3D_k32cd")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendTree_iwnl8")
+anim_player = NodePath("../mixamo/AnimationPlayer")
+active = true
+root_motion_track = NodePath("Armature/Skeleton3D:mixamorig_Root")
+parameters/Movement/blend_position = 0.0
+
+[node name="SpringArmPivot" type="Node3D" parent="."]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="SpringArmPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47418, 0)
+spring_length = 3.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArmPivot/SpringArm3D"]
+
+[editable path="mixamo"]
